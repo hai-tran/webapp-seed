@@ -8,8 +8,9 @@ The goal of this seed is to:
 This seed includes 2 main folders:
 ### Client ###
 - Front-end app with Angular2. It is based on https://github.com/mgechev/angular2-seed (release 2.1.2)
+
 ### Server ###
-- Back-edn with Hapijs. It is based on https://github.com/dwyl/hapi-typescript-example (latest commit abaf694)
+- Back-end with Hapijs. It is based on https://github.com/dwyl/hapi-typescript-example (latest commit abaf694)
 
 ## Development environment ##
 - Chrome browser (latest version)
