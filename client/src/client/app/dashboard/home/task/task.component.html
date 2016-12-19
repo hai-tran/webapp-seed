@@ -1,0 +1,124 @@
+<div class="">
+  <div class="page-title">
+    <div class="title_left">
+      <h3>Task Management</h3>
+    </div>
+    <div class="title_right">
+      <div class="col-md-5 col-sm-5 col-xs-12 pull-right top_search">
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Create new task</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <br>
+          <form class="form-horizontal form-label-left" (ngSubmit)="createTask()">
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input [(ngModel)]="newTask.name" [ngModelOptions]="{standalone: true}" class="form-control col-md-7 col-xs-12" type="text"
+                  required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input [(ngModel)]="newTask.description" [ngModelOptions]="{standalone: true}" class="form-control col-md-7 col-xs-12" type="text"
+                  required />
+              </div>
+            </div>
+            <div class="ln_solid"></div>
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-default btn-primary">Create</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="updatingTask">
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Update task</h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br>
+            <form class="form-horizontal form-label-left" (ngSubmit)="updateTask()">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input [(ngModel)]="updatingTask.name" [ngModelOptions]="{standalone: true}" class="form-control col-md-7 col-xs-12" type="text"
+                    required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description</label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input [(ngModel)]="updatingTask.description" [ngModelOptions]="{standalone: true}" class="form-control col-md-7 col-xs-12" type="text"
+                    required />
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <button type="submit" class="btn btn-default btn-primary">Update</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Tasks</h2>
+          <ul class="nav navbar-right panel_toolbox">
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div id="div-tasks" class="x_content collapse in">
+          <table class="table table-striped dt-responsive" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th style="width:10%">Id</th>
+                <th style="width:30%">Name</th>
+                <th style="width:40%">Description</th>
+                <th style="width:10%">Delete</th>
+                <th style="width:10%">Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks; let i=index">
+                <td style="width:20%">{{task.id}}</td>
+                <td style="width:20%">{{task.name}}</td>
+                <td style="width:50%">{{task.description}}</td>
+                <td style="width:10%">
+                  <button class="btn-link" (click)="removeTask(task, i)"><i class="fa fa-remove"></i></button>
+                </td>
+                <td style="width:10%">
+                  <button class="btn-link" (click)="onUpdateTaskClicked(task, i)"><i class="fa fa-edit"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

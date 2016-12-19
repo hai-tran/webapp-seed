@@ -1,0 +1,44 @@
+<div class="login">
+  <div class="login_wrapper">
+    <div class="animate form login_form">
+      <section class="login_content">
+        <form (ngSubmit)="login()">
+          <h1>Login</h1>
+          <div class="login_error" *ngIf="errorMessage">{{errorMessage}}</div>
+          <div>
+            <input [(ngModel)]="credential.username" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Username"
+              required />
+          </div>
+          <div>
+            <input [(ngModel)]='credential.password' [ngModelOptions]="{standalone: true}" type="password" class="form-control" placeholder="Password"
+              required />
+          </div>
+          <div>
+            <button class="btn btn-default submit" type="submit">Log in</button>
+            <!--<a class="reset_pass" href="#">Lost your password?</a>-->
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="separator">
+            <!--<p class="change_link">New to site?
+                <a class="to_register"> Create Account </a>
+              </p>-->
+
+            <div class="clearfix"></div>
+            <br />
+
+            <div>
+              <h1><i class="fa fa-paw"></i>
+                <%= APP_TITLE %>
+              </h1>
+              <p>
+                <%= APP_FOOTER %>
+              </p>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="col-md-3 left_col">
+  <div class="scroll-view">
+    <div class="navbar nav_title" style="border: 0;">
+      <a href="/" class="site_title">
+        <i class="fa fa-paw"></i>
+        <span><%= APP_TITLE %></span>
+      </a>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+      <div class="menu_section active">
+        <h3>Dashboard</h3>
+        <ul class="nav side-menu">
+          <template ngFor let-lv1Item [ngForOf]="menuItems" let-lv1Index="index">
+            <li [ngClass]="lv1Item.isExpanded ? (isToggled ? 'active' : 'active-sm') : ''">
+              <a (click)="onLv1MenuClicked(lv1Index)">
+                <i [ngClass]="lv1Item.navItem.iconClass"></i> {{lv1Item.navItem.name}}
+                <span [ngClass]="lv1Item.isExpanded ? 'fa fa-chevron-up' : 'fa fa-chevron-down'"></span>
+              </a>
+
+              <ul class="nav child_menu" [@slideUpDown]="lv1Item.isExpanded ? 'in' : 'out'" [ngStyle]="{'display' : ((isToggled || lv1Item.isExpanded) ? 'block' : 'none')}">
+                <template ngFor let-lv2Item [ngForOf]="lv1Item.children" let-lv2Index="index">
+                  <li [routerLinkActive]="['current-page']" [routerLinkActiveOptions]="true">
+                    <a [routerLink]="lv2Item.navItem.routerLink" (click)="onLv2MenuClicked(lv1Index, lv2Index)">{{lv2Item.navItem.name}}
+                    </a>
+                  </li>
+                </template>
+              </ul>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </div>
+    <!-- /sidebar menu -->
+
+    <!-- /menu footer buttons -->
+    <div class="sidebar-footer hidden-small">
+      <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Settings">
+        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+      </a>
+      <a data-toggle="tooltip" data-placement="top" title="" data-original-title="FullScreen">
+        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+      </a>
+      <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Lock">
+        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+      </a>
+      <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout">
+        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+      </a>
+    </div>
+    <!-- /menu footer buttons -->
+  </div>
+</div>

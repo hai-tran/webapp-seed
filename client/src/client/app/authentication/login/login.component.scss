@@ -1,0 +1,11 @@
+.login {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+.login_content .login_error {
+  font: normal 15px Helvetica, Arial, sans-serif;
+  letter-spacing: -0.05em;
+  line-height: 20px;
+  margin: 0 0 20px;
+  color: red;
+}

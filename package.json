@@ -1,0 +1,29 @@
+{
+  "name": "webappseed",
+  "version": "0.0.2",
+  "description": "Seed for web application",
+  "scripts": {
+    "postinstall": "npm run installClient && npm run installServer",
+    "installClient": "cd client && npm install",
+    "installServer": "cd server && npm install",
+    "buildClient": "cd client && npm run build.prod",
+    "buildServer": "cd server && npm run build.prod",
+    "build": "gulp build"
+  },
+  "author": "Hai Tran",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hai-tran/webapp-seed"
+  },
+  "engines": {
+    "node": ">=6.3.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "run-sequence": "^1.2.2"
+  },
+  "dependencies": {}
+}

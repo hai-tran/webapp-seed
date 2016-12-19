@@ -1,0 +1,17 @@
+<div [ngClass]="sidebarComponent.isToggled ? 'nav-md' : 'nav-sm'">
+  <div class="container body">
+    <div class="main_container">
+      <sd-sidebar></sd-sidebar>
+      <sd-toolbar (menuToggle)="sidebarComponent.toggle()"></sd-toolbar>
+      <div class="right_col content-region" role="main">
+        <router-outlet></router-outlet>
+      </div>
+      <footer class="footer">
+        <div class="pull-right">
+          <%= APP_FOOTER %>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+  </div>
+</div>
